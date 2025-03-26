@@ -23,7 +23,7 @@ import { ref, onMounted } from 'vue'
 
 const city = ref('taipei')
 const result = ref(null)
-const API_KEY = 'ce5b749205e49b9a1cb0d9683396654f'
+const API_KEY = '測試'
 
 const fetchWeather = async () => {
   const res = await fetch(
