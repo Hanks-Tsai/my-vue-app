@@ -1,12 +1,12 @@
 <template>
     <div>
-      <h2>🔁 RAG Reranker Demo</h2>
+      <h2>RAG Reranker Demo</h2>
       <input v-model="query" placeholder="輸入你的問題" class="input" />
       <textarea v-model="rawDocs" placeholder="輸入段落，每段一行" rows="5" class="textarea"></textarea>
       <button @click="submit">開始重排序</button>
   
       <div v-if="results.length">
-        <h3>🔽 排序結果：</h3>
+        <h3>排序結果：</h3>
         <ul>
           <li v-for="(r, i) in results" :key="i">
             <strong>#{{ i + 1 }}</strong>: {{ r.text }} (score: {{ r.score.toFixed(2) }})
