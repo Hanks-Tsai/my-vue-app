@@ -9,7 +9,7 @@
         <h3>排序結果：</h3>
         <ul>
           <li v-for="(r, i) in results" :key="i">
-            <strong>#{{ i + 1 }}</strong>: {{ r.text }} (score: {{ r.score.toFixed(2) }})
+            <strong>#{{ i + 1 }}</strong>: {{ r.text }} (score: {{ r.score.toFixed(4) }})
           </li>
         </ul>
       </div>
