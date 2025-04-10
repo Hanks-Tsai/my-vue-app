@@ -16,27 +16,22 @@
     </div>
   </template>
   
-  <script>
-  import axios from "axios";
-  export default {
-    data() {
-      return {
-        query: "",
-        rawDocs: "",
-        results: [],
-      };
-    },
-    methods: {
-      async submit() {
-        const docs = this.rawDocs.split("\n").filter(line => line.trim());
-        const res = await axios.post("http://localhost:5000/api/rerank", {
-          query: this.query,
-          documents: docs,
-        });
-        this.results = res.data;
-      },
-    },
-  };
+  <script setup>
+  import { ref } from 'vue'
+  import axios from 'axios'
+
+  const query = ref('')
+  const rawDocs = ref('')
+  const results = ref([])
+
+  const submit = async () => {
+    const docs = rawDocs.value.split('\n').filter(line => line.trim())
+    const res = await axios.post('http://localhost:5000/api/rerank', {
+      query: query.value,
+      documents: docs
+    })
+    results.value = res.data
+  }
   </script>
   
   <style>
