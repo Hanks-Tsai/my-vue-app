@@ -26,10 +26,13 @@
 
   const submit = async () => {
     const docs = rawDocs.value.split('\n').filter(line => line.trim())
+    console.log(docs)
     const res = await axios.post('http://localhost:5000/api/rerank', {
       query: query.value,
       documents: docs
     })
+    console.log(res.data)
+    
     results.value = res.data
   }
   </script>
